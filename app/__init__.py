@@ -12,6 +12,6 @@ bootstrap = Bootstrap()
 def create_app(config_name):
     app.config.from_object(config_options[config_name])
 
-    bootstap.init_app(app)
+    bootstrap.init_app(app)
 
     return app
