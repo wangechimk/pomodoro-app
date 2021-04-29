@@ -8,6 +8,7 @@
       <li><a href="/pitches/" class="nav-link px-2 link-dark">start timer</a></li>
     </ul>
 
+
     <div class="col-md-3 text-end">
       {% if current_user.is_authenticated %}
       <button type="button" class="btn btn-outline-dark me-2"><a href="{{url_for('main.profile',uname=current_user.username)}}" style="color:#F5245F; text-decoration: none;"><i class="bi bi-person-fill"></i>{{current_user.username}}</a></button>
