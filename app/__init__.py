@@ -2,6 +2,7 @@ from flask import Flask
 from config import config_options
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
+from .main import views
 
 app = Flask(__name__)
 app.static_folder = 'static'
