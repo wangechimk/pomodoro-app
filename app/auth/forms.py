@@ -20,10 +20,11 @@ class RegistrationForm(FlaskForm):
     password2 = PasswordField('Confirm Passwords', validators=[Required()])
     submit = SubmitField('Sign Up')
 
-    def confirm_email(self, data_field):
+
+    def validate_email(self, data_field):
         if User.query.filter_by(email=data_field.data).first():
             raise ValidationError('There is an account with that email')
 
-    def confirm_username(self, data_field):
-        if User.query.filter_by(username=data_field.data.data).first():
+    def validate_username(self, data_field):
+        if User.query.filter_by(username=data_field.data).first():
             raise ValidationError('That username is taken')

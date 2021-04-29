@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+  background-image: url("../img/bg1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 40px;
+  overflow-y: hidden;
+}
+body {
+  background: transparent;
+  height: 100%;
+  width: 100vw;
+  margin-top: 5px 0px 60px 0px;
+  font-family: "Roboto", sans-serif;
+  overflow-y: scroll;
+}

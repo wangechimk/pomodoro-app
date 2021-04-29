@@ -1,7 +1,9 @@
-from . import db
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from . import login_manager
+from . import login_manager,db
+from datetime import datetime
+
 
 
 @login_manager.user_loader
@@ -29,3 +31,23 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+
+
+class Activity(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    amount_time = db.Column(db.Integer)
+    break_time = db.Column(db.Integer)
+    break_activity = db.Column(db.String(300))
+    date_created = db.Column(db.DateTime)
+
+    @property
+    def completed(self):
+        if self.date_created + datetime.timedelta(minutes=self.amount_time) > datetime.now():
+            return True
+        else:
+            return False
+
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
